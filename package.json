@@ -1,0 +1,27 @@
+{
+  "name": "make-icns",
+  "version": "1.0.0",
+  "description": "Make .icns file from image",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Vu Dang Khoa Chiem",
+  "license": "ISC",
+  "dependencies": {
+    "cli-progress": "^3.8.2",
+    "colors": "^1.4.0",
+    "image-size": "^0.8.3",
+    "is-valid-path": "^0.1.1",
+    "minimist": "^1.2.5",
+    "mkdirp": "^1.0.4",
+    "sharp": "^0.25.2",
+    "update-notifier": "^4.1.0"
+  },
+  "bin": {
+    "mk-icns": "./index.js"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}

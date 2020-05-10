@@ -1,0 +1,8 @@
+{
+  "doesNotExist": " does not exist",
+  "invalidPath": " path is invalid",
+  "isNotADirectory": " is not a directory",
+  "isNotAPng": " is not a \".png\" file",
+  "syntax": " mk-icns <PngFilePath> <DestinationIcnsFilePath> ",
+  "useSquareImg": "Please use a square image"
+}
