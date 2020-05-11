@@ -9,6 +9,7 @@
   "author": "Vu Dang Khoa Chiem",
   "license": "ISC",
   "dependencies": {
+    "@fiahfy/icns": "0.0.6",
     "cli-progress": "^3.8.2",
     "colors": "^1.4.0",
     "image-size": "^0.8.3",

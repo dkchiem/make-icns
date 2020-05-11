@@ -4,5 +4,7 @@
   "isNotADirectory": " is not a directory",
   "isNotAPng": " is not a \".png\" file",
   "syntax": " mk-icns <PngFilePath> <DestinationIcnsFilePath> ",
-  "useSquareImg": "Please use a square image"
+  "useSquareImg": "Please use a square image",
+  "generatingImg": "Generating images...",
+  "welcomeLog": "*** MAKE-ICNS ***\n"
 }

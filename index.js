@@ -1,9 +1,11 @@
-const args = require('minimist')(process.argv.slice(2));
 const files = require('./lib/files');
-const { getMessage } = require('./lib/helpers');
+const { getMessage, sendErrorMsg } = require('./lib/helpers');
 const image = require('./lib/image');
-const isValidPath = require('is-valid-path');
+const args = require('minimist')(process.argv.slice(2));
 require('colors');
+const path = require('path');
+const mkdirp = require('mkdirp');
+const fs = require('fs');
 
 const initialPath = args._[0];
 const destPath = args._[1];
@@ -11,10 +13,23 @@ const destPath = args._[1];
 main();
 
 function main() {
-  console.log('*** MAKE-ICNS ***\n'.blue.bold);
-  if (checkPaths(initialPath) && checkPaths(destPath)) {
+  // Welcome message
+  console.log(getMessage('welcomeLog').blue.bold);
+
+  if (files.checkPaths(initialPath) && files.checkPaths(destPath)) {
     if (checkFileAndDirectory()) {
-      image.resize(initialPath);
+      // Generate "out" directory
+      mkdirp.sync('out');
+
+      // Generate .icns file
+      image.generate(initialPath, (fileName) => {
+        console.log(`Moving ${fileName} to ${destPath.replace(/\/$/, '')}`.green);
+        const newDestPath = destPath.replace(/\/$/, '') + '/' + fileName;
+        files.mvFile(`out/${fileName}`, newDestPath, () => {
+          console.log('Done.'.green);
+          console.log('\nThanks for using make-icns!\n'.blue.bold);
+        });
+      });
     }
   }
 }
@@ -37,29 +52,4 @@ function checkFileAndDirectory() {
   }
 }
 
-function checkPaths(path) {
-  if (!isValidPath(path)) {
-    sendErrorMsg(true, 'invalidPath', path);
-    return false;
-  } else {
-    if (!files.pathExists(path)) {
-      sendErrorMsg(true, 'doesNotExist', path);
-      return false;
-    } else {
-      return true;
-    }
-  }
-}
-
-function sendErrorMsg(syntax, messageKey, text) {
-  if (text) {
-    console.log(text.red.underline + getMessage(messageKey, text).red.bold);
-  } else {
-    console.log(getMessage(messageKey, text).red.bold);
-  }
-  syntax && console.log('Syntax: '.bold + getMessage('syntax').yellow);
-  console.log();
-}
-
 // /usr/local/bin/
-// iconutil -c icns AppIcon.iconset
