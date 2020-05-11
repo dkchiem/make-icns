@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const files = require('./lib/files');
 const { getMessage, sendErrorMsg } = require('./lib/helpers');
 const image = require('./lib/image');
