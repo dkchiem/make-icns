@@ -1,13 +1,17 @@
 {
   "name": "make-icns",
   "version": "1.0.0",
-  "description": "Make .icns file from image",
+  "description": "A CLI to help you convert a single .png file into a .icns file.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "author": "Vu Dang Khoa Chiem",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Doudou8/make-icns.git"
+  },
   "dependencies": {
     "@fiahfy/icns": "0.0.6",
     "cli-progress": "^3.8.2",
@@ -22,6 +26,10 @@
   "bin": {
     "mk-icns": "./index.js"
   },
+  "bugs": {
+    "url": "https://github.com/Doudou8/make-icns/issues"
+  },
+  "homepage": "https://github.com/Doudou8/make-icns",
   "devDependencies": {
     "prettier": "^2.0.5"
   },
@@ -31,6 +39,9 @@
     "cli",
     "png",
     "icns",
-    "icon"
+    "icon",
+    "image",
+    "convert",
+    "converter"
   ]
 }

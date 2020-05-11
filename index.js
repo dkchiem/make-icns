@@ -1,6 +1,7 @@
 const files = require('./lib/files');
 const { getMessage, sendErrorMsg } = require('./lib/helpers');
 const image = require('./lib/image');
+const { checkUpdate } = require('./lib/update');
 const args = require('minimist')(process.argv.slice(2));
 const mkdirp = require('mkdirp');
 require('colors');
@@ -26,6 +27,7 @@ function main() {
         files.mvFile(`out/${fileName}`, newDestPath, () => {
           console.log('Done.'.green);
           console.log('\nThanks for using make-icns!\n'.blue.bold);
+          checkUpdate();
         });
       });
     }
