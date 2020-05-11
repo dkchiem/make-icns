@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "author": "Vu Dang Khoa Chiem",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@fiahfy/icns": "0.0.6",
     "cli-progress": "^3.8.2",
