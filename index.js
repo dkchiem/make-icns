@@ -2,10 +2,8 @@ const files = require('./lib/files');
 const { getMessage, sendErrorMsg } = require('./lib/helpers');
 const image = require('./lib/image');
 const args = require('minimist')(process.argv.slice(2));
-require('colors');
-const path = require('path');
 const mkdirp = require('mkdirp');
-const fs = require('fs');
+require('colors');
 
 const initialPath = args._[0];
 const destPath = args._[1];
