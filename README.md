@@ -1,6 +1,6 @@
 # make-icns
 
-## What is EyeRest?
+## What is make-icns?
 
 make-icns is a cli that converts a single .png file into a .icns file.
 
