@@ -1,6 +1,6 @@
 {
   "name": "make-icns",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI to help you convert a single .png file into a .icns file.",
   "main": "index.js",
   "scripts": {
