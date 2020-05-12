@@ -1,0 +1,11 @@
+
+Usage: mk-icns <png-file-path> <destination-directory>
+
+Options:
+  -n                Name the generated ICNS file        [string]
+  -h, --help, help  Show help
+
+Example: mk-icns /path/to/pngFile.png /destination/directory
+
+Repository: https://github.com/Doudou8/make-icns
+Help: https://github.com/Doudou8/make-icns/issues

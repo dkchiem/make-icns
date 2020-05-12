@@ -1,35 +1,38 @@
 #!/usr/bin/env node
-const files = require('./lib/files');
-const { getMessage, sendErrorMsg } = require('./lib/helpers');
-const image = require('./lib/image');
+
+// lib
 const { checkUpdate } = require('./lib/update');
+const { getMessage, sendErrorMsg } = require('./lib/helpers');
+const { help } = require('./lib/help');
+const files = require('./lib/files');
+const image = require('./lib/image');
+// npm
 const args = require('minimist')(process.argv.slice(2));
-const mkdirp = require('mkdirp');
+const path = require('path');
 require('colors');
 
 const initialPath = args._[0];
-const destPath = args._[1];
+let destPath = args._[1];
+const fileName = args.n;
 
-main();
+if (args.h || args.help || args._[0] === 'help') {
+  help();
+} else {
+  main();
+}
 
 function main() {
+  !args._[1] && (destPath = path.dirname(initialPath));
   // Welcome message
-  console.log(getMessage('welcomeLog').blue.bold);
+  console.log('\n' + getMessage('welcomeLog').blue.bold);
 
   if (files.checkPaths(initialPath) && files.checkPaths(destPath)) {
     if (checkFileAndDirectory()) {
-      // Generate "out" directory
-      mkdirp.sync('out');
-
       // Generate .icns file
-      image.generate(initialPath, (fileName) => {
-        console.log(`Moving ${fileName} to ${destPath.replace(/\/$/, '')}`.green);
-        const newDestPath = destPath.replace(/\/$/, '') + '/' + fileName;
-        files.mvFile(`out/${fileName}`, newDestPath, () => {
-          console.log('Done.'.green);
-          console.log('\nThanks for using make-icns!\n'.blue.bold);
-          checkUpdate();
-        });
+      image.generate(initialPath, destPath, fileName, () => {
+        console.log('Done.'.green);
+        console.log('\nThanks for using make-icns!\n'.blue.bold);
+        checkUpdate();
       });
     }
   }
@@ -52,5 +55,3 @@ function checkFileAndDirectory() {
     return false;
   }
 }
-
-// /usr/local/bin/

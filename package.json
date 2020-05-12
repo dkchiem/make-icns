@@ -1,7 +1,7 @@
 {
   "name": "make-icns",
-  "version": "1.0.1",
-  "description": "A CLI to help you convert a single .png file into a .icns file.",
+  "version": "1.1.0",
+  "description": "A CLI to help you convert a single PNG file into an ICNS file.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -19,7 +19,6 @@
     "image-size": "^0.8.3",
     "is-valid-path": "^0.1.1",
     "minimist": "^1.2.5",
-    "mkdirp": "^1.0.4",
     "sharp": "^0.25.2",
     "update-notifier": "^4.1.0"
   },
