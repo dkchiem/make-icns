@@ -6,7 +6,7 @@
 
 ## Installation
 
-> You may need to use `sudo` to install the package globally. If you get an error installing with sudo, you might want to add`--unsafe-perm` to the command.
+> You may need to use `sudo` to install the package globally. If you get an error installing with sudo, you might want to add`--unsafe-perm` to the command. You should be able to use this CLI on macOS, Linux and Windows.
 
 ```bash
 $ npm i -g make-icns
