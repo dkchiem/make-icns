@@ -24,10 +24,10 @@ This command will convert your PNG into an ICNS and move it to the destination d
 $ mk-icns <png-file-path> <destination-directory>
 ```
 
-| Options          |          Desription          |
-| ---------------- | :--------------------------: |
-| -n               | Name the generated ICNS file |
-| -h, --help, help |          Show help           |
+| Options          |          Desription          |   Type |
+| ---------------- | :--------------------------: | -----: |
+| -n               | Name the generated ICNS file | string |
+| -h, --help, help |          Show help           |      - |
 
 Example:
 
