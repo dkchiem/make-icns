@@ -18,7 +18,7 @@ After installing the cli globally or on your project, you are ready to use it.
 
 > In order to get a good quatlity icon, the picture must be at least 1024x1024 pixels.
 
-This command will convert your PNG into an ICNS and move it to the destination directory. The generated ICNS file will automatically take the name of the PNG file. The new image will also override any ICNS file with the same name in the destination directory.
+This command will convert your PNG into an ICNS and move it to the destination directory. The generated ICNS file will by default take the name of the PNG file. The new image will also override any ICNS file with the same name in the destination directory.
 
 ```bash
 $ mk-icns <png-file-path> <destination-directory>
