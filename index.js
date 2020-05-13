@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// lib
+// make-icns
 const { checkUpdate } = require('./lib/update');
 const { getMessage, sendErrorMsg } = require('./lib/helpers');
 const { help } = require('./lib/help');
@@ -15,11 +15,7 @@ const initialPath = args._[0];
 let destPath = args._[1];
 const fileName = args.n;
 
-if (args.h || args.help || args._[0] === 'help') {
-  help();
-} else {
-  main();
-}
+args.h || args.help || args._[0] === 'help' ? help() : main();
 
 function main() {
   !args._[1] && (destPath = path.dirname(initialPath));
