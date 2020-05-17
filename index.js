@@ -18,12 +18,12 @@ const fileName = args.n;
 args.h || args.help || args._[0] === 'help' ? help() : main();
 
 function main() {
-  !args._[1] && (destPath = path.dirname(initialPath));
   // Welcome message
   console.log('\n' + getMessage('welcomeLog').blue.bold);
   if (!initialPath) {
     sendErrorMsg(true, 'enterPngPath');
   } else {
+    !args._[1] && (destPath = path.dirname(initialPath));
     if (files.checkPath(initialPath) && files.checkPath(destPath)) {
       if (checkFileAndDirectory()) {
         // Generate .icns file
