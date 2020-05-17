@@ -6,5 +6,6 @@
   "syntax": " mk-icns <PngFilePath> <DestinationIcnsFilePath> ",
   "useSquareImg": "Please use a square image",
   "generatingImg": "Generating images...",
-  "welcomeLog": "*** MAKE-ICNS ***\n"
+  "welcomeLog": "*** MAKE-ICNS ***\n",
+  "enterPngPath": "Please the path to your PNG file"
 }

@@ -21,15 +21,18 @@ function main() {
   !args._[1] && (destPath = path.dirname(initialPath));
   // Welcome message
   console.log('\n' + getMessage('welcomeLog').blue.bold);
-
-  if (files.checkPaths(initialPath) && files.checkPaths(destPath)) {
-    if (checkFileAndDirectory()) {
-      // Generate .icns file
-      image.generate(initialPath, destPath, fileName, () => {
-        console.log('Done.'.green);
-        console.log('\nThanks for using make-icns!\n'.blue.bold);
-        checkUpdate();
-      });
+  if (!initialPath) {
+    sendErrorMsg(true, 'enterPngPath');
+  } else {
+    if (files.checkPath(initialPath) && files.checkPath(destPath)) {
+      if (checkFileAndDirectory()) {
+        // Generate .icns file
+        image.generate(initialPath, destPath, fileName, () => {
+          console.log('Done.'.green);
+          console.log('\nThanks for using make-icns!\n'.blue.bold);
+          checkUpdate();
+        });
+      }
     }
   }
 }
@@ -37,11 +40,8 @@ function main() {
 function checkFileAndDirectory() {
   if (files.hasExtension(initialPath, '.png') || files.hasExtension(initialPath, '.PNG')) {
     if (files.isDirectory(destPath)) {
-      if (image.isSquare(initialPath)) {
-        return true;
-      } else {
-        sendErrorMsg(false, 'useSquareImg');
-      }
+      if (image.isSquare(initialPath)) return true;
+      else sendErrorMsg(false, 'useSquareImg');
     } else {
       sendErrorMsg(true, 'isNotADirectory', destPath);
       return false;
