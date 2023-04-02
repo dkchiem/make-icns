@@ -41,7 +41,7 @@ $ mk-icns /path/to/pngFile.png /destination/directory -n "ThisIsAnICNSFile"
 
 ## Author
 
-- **Vu Dang Khoa Chiem** - Doudou8
+- **Vu Dang Khoa Chiem** - dkchiem
 
 ## License
 
