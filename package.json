@@ -1,8 +1,9 @@
 {
   "name": "make-icns",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "A CLI to help you convert a single PNG file into an ICNS file.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
@@ -13,14 +14,14 @@
     "url": "https://github.com/dkchiem/make-icns.git"
   },
   "dependencies": {
-    "@fiahfy/icns": "0.0.6",
+    "@fiahfy/icns": "^0.0.7",
     "cli-progress": "^3.8.2",
     "colors": "^1.4.0",
-    "image-size": "^0.8.3",
+    "image-size": "^1.0.2",
     "is-valid-path": "^0.1.1",
-    "minimist": "^1.2.5",
-    "sharp": "^0.25.2",
-    "update-notifier": "^4.1.0"
+    "minimist": "^1.2.8",
+    "sharp": "^0.32.0",
+    "update-notifier": "^6.0.2"
   },
   "bin": {
     "mk-icns": "./index.js"

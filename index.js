@@ -1,21 +1,27 @@
 #!/usr/bin/env node
 
 // make-icns
-const { checkUpdate } = require('./lib/update');
-const { getMessage, sendErrorMsg } = require('./lib/helpers');
-const { help } = require('./lib/help');
-const files = require('./lib/files');
-const image = require('./lib/image');
+import { checkUpdate } from './lib/update.js';
+import { getMessage, sendErrorMsg } from './lib/helpers.js';
+import { help } from './lib/help.js';
+import { checkPath, isDirectory, hasExtension } from './lib/files.js';
+import { generate, isSquare } from './lib/image.js';
+
 // npm
-const args = require('minimist')(process.argv.slice(2));
-const path = require('path');
-require('colors');
+// const args = require('minimist')(process.argv.slice(2));
+// const path = require('path');
+// require('colors');
 
-const initialPath = args._[0];
-let destPath = args._[1];
-const fileName = args.n;
+import args from 'minimist';
+import path from 'path';
+import 'colors';
 
-args.h || args.help || args._[0] === 'help' ? help() : main();
+const options = args(process.argv.slice(2));
+const initialPath = options._[0];
+let destPath = options._[1];
+const fileName = options.n;
+
+options.h || options.help || options._[0] === 'help' ? help() : main();
 
 function main() {
   // Welcome message
@@ -23,11 +29,11 @@ function main() {
   if (!initialPath) {
     sendErrorMsg(true, 'enterPngPath');
   } else {
-    !args._[1] && (destPath = path.dirname(initialPath));
-    if (files.checkPath(initialPath) && files.checkPath(destPath)) {
+    !options._[1] && (destPath = path.dirname(initialPath));
+    if (checkPath(initialPath) && checkPath(destPath)) {
       if (checkFileAndDirectory()) {
         // Generate .icns file
-        image.generate(initialPath, destPath, fileName, () => {
+        generate(initialPath, destPath, fileName, () => {
           console.log('Done.'.green);
           console.log('\nThanks for using make-icns!\n'.blue.bold);
           checkUpdate();
@@ -38,9 +44,9 @@ function main() {
 }
 
 function checkFileAndDirectory() {
-  if (files.hasExtension(initialPath, '.png') || files.hasExtension(initialPath, '.PNG')) {
-    if (files.isDirectory(destPath)) {
-      if (image.isSquare(initialPath)) return true;
+  if (hasExtension(initialPath, '.png') || hasExtension(initialPath, '.PNG')) {
+    if (isDirectory(destPath)) {
+      if (isSquare(initialPath)) return true;
       else sendErrorMsg(false, 'useSquareImg');
     } else {
       sendErrorMsg(true, 'isNotADirectory', destPath);
