@@ -2,7 +2,7 @@
 Usage: mk-icns <png-file-path> <destination-directory>
 
 Options:
-  -n                Name the generated ICNS file        [string]
+  -n                Name of the generated ICNS file        [string]
   -h, --help, help  Show help
 
 Example: mk-icns /path/to/pngFile.png /destination/directory

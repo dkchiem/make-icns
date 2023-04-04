@@ -36,7 +36,7 @@ Options:
 Example:
 
 ```bash
-$ mk-icns /path/to/pngFile.png /destination/directory -n "ThisIsAnICNSFile"
+$ mk-icns /path/to/pngFile.png /destination/directory -n "This_Is_An_ICNS_File"
 ```
 
 ## Author
