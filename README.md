@@ -28,10 +28,10 @@ $ mk-icns <png-file-path> <destination-directory>
 
 Options:
 
-| Options          |          Desription          |   Type |
-| ---------------- | :--------------------------: | -----: |
-| -n               | Name the generated ICNS file | string |
-| -h, --help, help |          Show help           |      - |
+| Options          |           Desription            |   Type |
+| ---------------- | :-----------------------------: | -----: |
+| -n               | Name of the generated ICNS file | string |
+| -h, --help, help |            Show help            |      - |
 
 Example:
 
