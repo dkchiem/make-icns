@@ -7,5 +7,5 @@ Options:
 
 Example: mk-icns /path/to/pngFile.png /destination/directory
 
-Repository: https://github.com/Doudou8/make-icns
-Help: https://github.com/Doudou8/make-icns/issues
+Repository: https://github.com/dkchiem/make-icns
+Help: https://github.com/dkchiem/make-icns/issues
